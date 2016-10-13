@@ -1,0 +1,194 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,body {
+	width: 100%;
+	background-color: black;
+	z-index: 1;
+	overflow: hidden;
+
+
+	--backgroundcolor: rgba(255,255,255, 0.15);
+	--graybackground: rgb(42, 42, 43);
+	--graybackgroundop:  rgba(42, 42, 43, 0.8) ;
+	--colorblue: #2386ef;
+
+}
+
+
+.bubbles {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	transform: translateZ(0);
+}
+
+.bubbles li {
+	position: absolute;
+	list-style: none;
+	display: block;
+	background-color: rgba(255,255,255, 0.15);
+	bottom: -100px;
+	animation: square 20s infinite;
+	transition-timing-function: linear;
+	border-radius: 50%; 
+}
+
+.bubbles li:nth-child(1) {
+	width: 40px;
+	height: 40px;
+	left: 20%;
+}
+.bubbles li:nth-child(2) {
+	width: 60px;
+	height: 60px;
+	left: 40%;
+	animation-delay: 2s;
+	animation-duration: 17s;
+}
+.bubbles li:nth-child(3) {
+	width: 10px;
+	height: 10px;
+	left: 60%;
+	animation-delay: 4s;
+	animation-duration: 13s;
+}
+.bubbles li:nth-child(4) {
+	width: 80px;
+	height: 80px;
+	left: 80%;
+	animation-delay: 1s;
+	animation-duration: 22s;
+}
+.bubbles li:nth-child(5) {
+	width: 50px;
+	height: 50px;
+	left: 50%;
+	animation-delay: 7s;
+	animation-duration: 12s;
+}
+.bubbles li:nth-child(6) {
+	width: 35px;
+	height: 35px;
+	left: 10%;
+	animation-delay: 11s;
+	animation-duration: 7s;
+}
+.bubbles li:nth-child(7) {
+	width: 20px;
+	height: 20px;
+	left: 90%;
+	animation-delay: 3s;
+	animation-duration: 15s;
+}
+
+#container > * {
+	position: relative;
+	z-index: 10;
+}
+
+.header {
+	width: 100%;
+	height: 100px;
+	margin-top: 3%;
+	text-align: center;
+
+}
+
+.header h1 {
+	color: var(--colorblue);
+	font-weight: 600;
+}
+
+#login {
+	border: 1px solid blue;
+	width: 30%;
+	height: 200px;
+	margin: 50px auto;
+	text-align: center;
+	padding: 20px 5%;
+	text-align: left;
+	background-color: var(--graybackgroundop) ;
+	box-shadow: 3px 3px 10px #2386ef; 
+}
+
+#login:after {
+	clear: both;
+}
+
+input {
+	display: block;
+	width: 100%;
+	height: 40px;
+	box-sizing: border-box;
+	margin: 5px auto;
+	border: 1px solid blue;
+	border-radius: 5px;
+	padding: 6px 10px;
+}
+
+button {
+	min-width: 70px;
+	height: 40px;
+	background-color: #FFF;
+	color: blue;
+	font-size: 14px;
+	font-weight: 600;
+	border: 2px solid blue;
+	border-radius: 5px;
+	padding: 6px;
+	text-align: center;
+}
+
+#signup {
+	position: absolute;	
+	z-index: 20;
+	border: 1px solid blue;
+	width: 30%;
+	height: 280px;
+	top: 25%;
+	left: 35%;
+	padding: 10px 5%;
+	text-align: left;
+	background-color: var(--graybackground) ;
+	box-shadow: 3px 3px 10px #2386ef; 
+}
+
+#signup:after {
+	clear: both;
+}
+
+div form label {
+	width: 100%;
+	height: 30px;
+	color: #FFF;
+	font-size: 15px;
+	font-weight: 400;
+}
+
+.pull-left {
+	float: left;
+}
+
+.pull-right {
+	float: right;
+}
+
+
+@keyframes square {
+	0% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	100% {
+		-webkit-transform: translateY(-1080px) rotate(630deg);
+		transform: translateY(-1080px) rotate(630deg);
+	}
+}
