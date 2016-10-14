@@ -30,7 +30,7 @@ protectPage();
 				<p>Bem-vindo <?php echo $_SESSION['userid']; ?>!</p>
 				<p>Neste fantástico e original jogo deves tentar adivinhar um número utilizando menos tentativas possíveis.
 					Podes selecionar a quantidade de digitos que o número vai ter e até quando vai.
-				A coluna "Correto" apenas diz quantos digitos é que acertou.</p>
+				A coluna "Números corretos" apenas diz quantos digitos é que acertou.</p>
 			</div>
 		</header>
 		<div class="container">
@@ -90,13 +90,13 @@ protectPage();
 					</ul>
 				</div>
 			</div>
-			
+
 			<div class="container2">
 				<div id="table_scores">
 
 					<label for="table_scores"> Difficulty 3 </label>
 					<?php
-					
+
 					if(isset($_POST['vardif'])){
 
 						$vardif = $_POST['vardif'];
@@ -105,10 +105,10 @@ protectPage();
 						echo $result;
 						echo $vardif."isto é abc";
 					}
-					
+
 					//$row = mysqli_fetch_array($result);
 					//printf($row);
-					
+
 					?>
 					<table>
 						<tr>
@@ -165,7 +165,7 @@ protectPage();
 	<script type="text/javascript" src="js/jogo.js"></script>
 	<script>
 
-		
+
 			$('#digitSelector').change(function(){
 				$vardif = $('#digitSelector').val();
 				$.ajax({
@@ -178,6 +178,6 @@ protectPage();
 							}
 						});
 			})
-		
+
 	</script>
 </html>
