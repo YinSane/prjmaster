@@ -15,6 +15,22 @@ protectPage();
 		<link rel="stylesheet" href="css/styles.css">
 		<link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
 	</head>
+
+	<script>
+		$(document).ready(function(){
+			var vardif = $('#digitSelector').val();
+				$.ajax({
+							type: "POST",
+							url: "php/scoreload.php",
+							data: {vardif:vardif}
+						}).done(function( result ) {
+							if(result != null){
+
+								$('#table_scores').html(result);		
+							}
+						});
+		})
+	</script>
 	<body>
 		<ul class="bubbles">
 			<li></li>
@@ -30,7 +46,7 @@ protectPage();
 				<p>Bem-vindo <?php echo $_SESSION['userid']; ?>!</p>
 				<p>Neste fantástico e original jogo deves tentar adivinhar um número utilizando menos tentativas possíveis.
 					Podes selecionar a quantidade de digitos que o número vai ter e até quando vai.
-				A coluna "Números corretos" apenas diz quantos digitos é que acertou.</p>
+				A coluna "Correto" apenas diz quantos digitos é que acertou.</p>
 			</div>
 		</header>
 		<div class="container">
@@ -40,7 +56,7 @@ protectPage();
 				<li class="full-width">
 					<p> Seleciona quantos digitos queres que o número tenha.
 					<form method="POST">
-						<select id="digitSelector" onchange="change();">
+						<select id="digitSelector">
 							<option value="2">2 digitos</option>
 							<option value="3">3 digitos</option>
 							<option value="4" selected>4 digitos</option>
@@ -90,68 +106,10 @@ protectPage();
 					</ul>
 				</div>
 			</div>
-
+			
 			<div class="container2">
 				<div id="table_scores">
 
-					<label for="table_scores"> Difficulty 3 </label>
-					<?php
-
-					if(isset($_POST['vardif'])){
-
-						$vardif = $_POST['vardif'];
-						$query1 = "SELECT username,score FROM topscores WHERE valdif=".$vardif." ORDER BY score";
-						$result = mysqli_query($condb,$query1);
-						echo $result;
-						echo $vardif."isto é abc";
-					}
-
-					//$row = mysqli_fetch_array($result);
-					//printf($row);
-
-					?>
-					<table>
-						<tr>
-							<th> Username </th>
-							<th> Highest Score </th>
-						</tr>
-						<tr>
-							<td>12345</td>
-							<td>12345</td>
-						</tr>
-						<tr>
-							<td>12345</td>
-							<td>12345</td>
-						</tr>
-						<tr>
-							<td>12345</td>
-							<td>12345</td>
-						</tr>
-						<tr>
-							<td>12345</td>
-							<td>12345</td>
-						</tr>
-						<tr>
-							<td>12345</td>
-							<td>12345</td>
-						</tr>
-						<tr>
-							<td>12345</td>
-							<td>12345</td>
-						</tr>
-						<tr>
-							<td>12345</td>
-							<td>12345</td>
-						</tr>
-						<tr>
-							<td>12345</td>
-							<td>12345</td>
-						</tr>
-						<tr>
-							<td>12345</td>
-							<td>12345</td>
-						</tr>
-					</table>
 				</div>
 			</div>
 		</div>
@@ -165,19 +123,23 @@ protectPage();
 	<script type="text/javascript" src="js/jogo.js"></script>
 	<script>
 
-
+		
 			$('#digitSelector').change(function(){
-				$vardif = $('#digitSelector').val();
+
+				var vardif = $('#digitSelector').val();
+
 				$.ajax({
 							type: "POST",
-							url: "index.php",
+							url: "php/scoreload.php",
 							data: {vardif:vardif}
 						}).done(function( result ) {
 							if(result != null){
 
+								$('#table_scores').html(result);		
 							}
 						});
-			})
 
+			});
+		
 	</script>
 </html>
