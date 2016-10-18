@@ -46,7 +46,7 @@ protectPage();
 				<p>Bem-vindo <?php echo $_SESSION['userid']; ?>!</p>
 				<p>Neste fantástico e original jogo deves tentar adivinhar um número utilizando menos tentativas possíveis.
 					Podes selecionar a quantidade de digitos que o número vai ter e até quando vai.
-				A coluna "Correto" apenas diz quantos digitos é que acertou.</p>
+				A coluna "Numeros Corretos" apenas diz quantos digitos é que acertou.</p>
 			</div>
 		</header>
 		<div class="container">
@@ -134,7 +134,7 @@ protectPage();
 							data: {vardif:vardif}
 						}).done(function( result ) {
 							if(result != null){
-
+								
 								$('#table_scores').html(result);		
 							}
 						});
